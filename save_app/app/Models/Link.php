@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Link extends Model
 {
-    protected $filtable = ['user_id', 'url', 'title', 'is_favorite'];
+    protected $fillable = ['user_id', 'url', 'title', 'is_favorite'];
 
     public function user()
     {
