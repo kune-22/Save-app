@@ -9,12 +9,19 @@ use App\Models\User;
 
 class SavesController extends Controller
 {
-    function index(Request $request){
-    $userId = auth()->id();
-    $links = Link::with('tags')->where('user_id', $userId)->get();
-    $tags = Tag::all();
+    function home(Request $request){
+        $userId = auth()->id();
+        $latestLinks = Link::with('tags')->where('user_id', $userId)->latest()->take(5)->get();
+        $tags = Tag::all();
+        return view('saves.top', compact('latestLinks', 'tags'));
+    }
 
-    return view('saves.top', compact('links', 'tags'));
+    function index(Request $request){
+        $userId = auth()->id();
+        $links = Link::with('tags')->where('user_id', $userId)->get();
+        $tags = Tag::all();
+
+        return view('link.all_func', compact('links', 'tags'));
     }
 
     function store(Request $request)
@@ -46,22 +53,20 @@ class SavesController extends Controller
 
         $link->tags()->sync($tagIds);
 
-        return redirect()->route("saves")->with('success', 'リンクを保存しました。');
+        return redirect()->route("link")->with('success', 'リンクを保存しました。');
     }
-    
+
     function show($id){
         $user = auth()->user();
-
         $link = $user->links()->with('tags')->find($id);
         return view('saves.show', compact('link'));
     }
 
     function edit($id){
         $user = auth()->user();
-
-        $link = $user->links()->with('tags')->find($id);
+        $linkToEdit = $user->links()->with('tags')->find($id);
         $tags = Tag::all();
-        return view('saves.edit', compact('link', 'tags'));
+        return view('link.all_func', compact('linkToEdit', 'tags'));
     }
 
     function update(Request $request, $id)
@@ -81,17 +86,17 @@ class SavesController extends Controller
             "is_favorite" => $request->has('is_favorite'),
         ]);
         $tagIds = $request->input('tag_id', []);
-        
+
         // 新しいタグが入力された場合
         if ($request->filled('new_tag')) {
             $newTag = Tag::firstOrCreate(["name" => trim($request->new_tag)]);
             $tagIds[] = $newTag->id;
         }
-        
+
         // 最終的なタグIDのリストで完全に同期
         $link->tags()->sync($tagIds);
 
-        return redirect()->route("saves")->with('success', 'リンクを更新しました。');
+        return redirect()->route("link")->with('success', 'リンクを更新しました。');
     }
 
     function destroy($id){
@@ -99,6 +104,7 @@ class SavesController extends Controller
         $link->tags()->detach(); // 中間テーブルのレコードを削除
         $link->delete();
 
-        return redirect()->route("saves");
+        // 成功メッセージを追加しました
+        return redirect()->route("link")->with('success', 'リンクを削除しました。');
     }
 }
