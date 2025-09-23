@@ -36,6 +36,6 @@
             <button type="submit" style="margin-top:10px;">更新する</button>
         </div>
     </form>
-    <a href="{{ route('saves') }}">一覧に戻る</a>
+    <a href="{{ route('saves.top') }}">トップページに戻る</a>
 </body>
 </html>
