@@ -15,6 +15,11 @@ Route::get('/', function () {
 Route::prefix('tag')->group(function (){
     Route::get('/', [TagController::class, 'index'])->name('tag');
     Route::post('/', [TagController::class, 'store'])->name('tag.store');
+
+    Route::get('/{id}/edit', [TagController::class, 'edit'])->name('tag.edit');
+    Route::put('/{id}', [TagController::class, 'update'])->name('tag.update');
+
+    Route::delete('/{id}', [TagController::class, 'destroy'])->name('tag.destroy');
 });
 
 Route::prefix('login')->group(function (){
@@ -32,7 +37,12 @@ Route::middleware('auth')->group(function (){
     Route::prefix('saves')->group(function (){
         Route::get('/', [SavesController::class, 'index'])->name('saves');
         Route::post('/', [SavesController::class, 'store'])->name('saves.store');
+
+        Route::get('/{id}', [SavesController::class, 'show'])->name('saves.show');
+
         Route::get('/{id}/edit', [SavesController::class, 'edit'])->name('saves.edit');
         Route::put('/{id}', [SavesController::class, 'update'])->name('saves.update');
+
+        Route::delete('/{id}', [SavesController::class, 'destroy'])->name('saves.destroy');
     });
 });

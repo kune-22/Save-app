@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>トップページ</h1>
-    <a href="{{ route('tag') }}">タグを作成する</a>
+    <a href="{{ route('tag') }}">タグの管理</a>
     <p>{{ auth()->user()->name }}</p>
     <hr>
     <form action="{{ route('saves.store') }}" method="POST" style="display: flex; flex-direction: column; width: 300px;">
@@ -49,6 +49,12 @@
                 <span style="border: 1px solid #000; padding: 2px; margin-right: 5px;">{{ $tag["name"] }}</span>
                 @endforeach
                 <a href="{{ route("saves.edit", ["id" => $link["id"] ] ) }}">編集</a>
+                <a href="{{ route("saves.show", ["id" => $link["id"] ] ) }}">詳細</a>
+                <form action="{{ route('saves.destroy', ['id' => $link['id']]) }}" method="POST" style="display: inline;">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" onclick="return confirm('本当に削除しますか？')">削除</button>
+                </form>
             </li>
         @endforeach
     </ul>
