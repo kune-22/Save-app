@@ -26,6 +26,6 @@ class LoginController extends Controller
 
         auth()->login($user);
 
-        return redirect()->route("saves");
+        return redirect()->route("saves.top");
     }
 }

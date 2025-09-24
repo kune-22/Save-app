@@ -1,17 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>サインアップページ</title>
+    <link rel="stylesheet" href="{{ asset('css/sign_up.css') }}">
 </head>
 <body>
-    <h1>サインアップページ</h1>
-    {{-- 【重要】sign_up.storeのルーティングは後で作成する --}}
     <form action="{{ route('sign_up.store') }}" method="POST">
-        {{-- フォームのメソッドがPOSTの場合は、csrfトークンを設定する必要がある --}}
-        {{-- （@csrfと書くだけでOK） --}}
+        <h1>サインアップページ</h1>
+        {{-- 【重要】sign_up.storeのルーティングは後で作成する --}}
         @csrf
         <label>名前</label>
         <input type="text" name="name">
@@ -26,6 +25,9 @@
         <input type="password" name="passwordConfirmation">
 
         <button type="submit">サインアップ</button>
+        <div style="text-align: center; margin-top: 15px;">
+        すでにアカウントをお持ちですか？ <br><a href="{{ route('login') }}">ログインはこちら</a>
+        </div>
     </form>
 </body>
 </html>

@@ -1,0 +1,110 @@
+/* ====================
+    メインコンテンツ
+   ==================== */
+.main-container {
+    width: 90%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ログイン中ユーザー表示 */
+.user-info {
+    text-align: center;
+    font-size: 0.9em;
+    color: #888;
+    margin-bottom: 20px;
+}
+
+/* セクションタイトル */
+h2 {
+    color: #333;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+/* リンク一覧 */
+.link-list {
+    list-style: none;
+    padding: 0;
+    max-width: 600px; /* ここで最大幅を制限 */
+    margin: 0 auto; /* 中央揃え */
+}
+
+.link-item {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 15px;
+    transition: box-shadow 0.3s ease;
+}
+
+.link-item:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* リンクヘッダー */
+.link-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.link-header a {
+    font-weight: bold;
+    color: #007bff;
+    text-decoration: underline;
+    font-size: 1.1rem;
+    word-break: break-all;
+}
+
+.link-header a:hover {
+    color: #0056b3;
+}
+
+/* URLテキスト */
+.url-text {
+    font-size: 0.9em;
+    color: #555;
+    margin-top: 0;
+    margin-bottom: 10px;
+    word-break: break-all;
+}
+
+/* タグのコンテナ */
+.tags-container {
+    margin-top: 10px;
+}
+
+.tag-list-item {
+    background-color: #e9e9f4;
+    color: #6a6a8a;
+    font-size: 0.8em;
+    padding: 4px 8px;
+    border-radius: 12px;
+    margin-right: 5px;
+    display: inline-block;
+}
+
+/* お気に入りマーク */
+.favorite-star {
+    color: #ffc107;
+    margin-left: 10px;
+}
+
+/* リンクなしメッセージ */
+.no-links {
+    text-align: center;
+    color: #888;
+    font-style: italic;
+    padding: 20px;
+}

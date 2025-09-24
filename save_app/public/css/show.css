@@ -1,0 +1,101 @@
+@charset "UTF-8";
+/* ====================
+    メインコンテンツ
+   ==================== */
+.main-container {
+    width: 90%;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* ページタイトル */
+.page-title {
+    color: #333;
+    font-size: 2rem;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+/* 詳細情報 */
+.detail-item {
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    color: #555;
+    text-align: left;
+}
+
+.detail-item strong {
+    color: #333;
+    font-weight: 600;
+    margin-right: 10px;
+}
+
+.detail-item a {
+    color: #007bff;
+    text-decoration: underline;
+    word-break: break-all;
+}
+
+/* タグ表示 */
+.tag-list-item {
+    background-color: #e9e9f4;
+    color: #6a6a8a;
+    font-size: 0.9em;
+    padding: 4px 8px;
+    border-radius: 12px;
+    margin-right: 5px;
+    display: inline-block;
+}
+
+/* アクションボタン */
+.action-buttons {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.action-buttons button,
+.action-buttons a {
+    padding: 10px 20px;
+    font-size: 1em;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.action-buttons .delete-btn {
+    background-color: #dc3545;
+}
+
+.action-buttons .delete-btn:hover {
+    background-color: #c82333;
+}
+
+.action-buttons .back-btn {
+    background-color: #6c757d;
+}
+
+.action-buttons .back-btn:hover {
+    background-color: #5a6268;
+}
+
+/* お気に入り */
+.favorite-status {
+    font-size: 1.2em;
+    color: #ffc107;
+}
