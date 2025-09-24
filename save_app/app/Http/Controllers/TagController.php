@@ -10,7 +10,7 @@ class TagController extends Controller
     function index(Request $request){
         $user = $request->user();
         $tags = Tag::all();
-        return view('saves.tag_mana', compact('tags'));
+        return view('tag.tag_mana', compact('tags'));
     }
 
     function store(Request $request){

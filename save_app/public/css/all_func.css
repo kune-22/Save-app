@@ -1,0 +1,262 @@
+@charset "UTF-8";
+
+/* ====================
+    メインコンテナ
+   ==================== */
+.main-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.main-container > * {
+    flex-basis: calc(50% - 10px);
+    box-sizing: border-box;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+    }
+
+    .main-container > * {
+        flex-basis: 100%;
+    }
+}
+
+/* ====================
+    フォームコンテナ
+   ==================== */
+.form-container, .link-list-container {
+    width: 100%;
+}
+
+.form-container {
+    background-color: #f9f9f9;
+}
+
+/* セクションタイトル */
+h2 {
+    color: #333;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+/* フォームグループ */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+.form-group input[type="url"],
+.form-group input[type="text"],
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.form-group select {
+    height: 120px;
+    overflow-y: auto;
+}
+
+.form-group.checkbox-group {
+    display: flex;
+    align-items: center;
+}
+
+/* カスタムチェックボックスのデザイン */
+.form-group.checkbox-group label {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    font-weight: normal;
+    margin-bottom: 0;
+}
+
+.form-group.checkbox-group input[type="checkbox"] {
+    /* 既存のチェックボックスを非表示にする */
+    position: absolute;
+    opacity: 0;
+}
+
+/* 非選択時の星のスタイル */
+.form-group.checkbox-group input[type="checkbox"] + label::before {
+    content: '☆'; /* 白抜きの星 */
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    line-height: 1.1;
+    font-size: 1.5rem;
+    color: #ccc;
+    margin-right: 10px;
+    transition: color 0.3s ease;
+}
+
+/* 選択時の星のスタイル */
+.form-group.checkbox-group input[type="checkbox"]:checked + label::before {
+    content: '★'; /* 塗りつぶしの星 */
+    color: #ffc107;
+}
+
+/* ボタン */
+button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    font-size: 1rem;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.btn-cancel {
+    display: block;
+    text-align: center;
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #555;
+    background-color: #e9ecef;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-cancel:hover {
+    background-color: #d6d8db;
+}
+
+/* ====================
+    リンク一覧
+   ==================== */
+.link-list {
+    list-style: none;
+    padding: 0;
+}
+
+.link-item {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 15px;
+    transition: box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.link-item:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.link-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.link-header a {
+    font-weight: bold;
+    color: #007bff;
+    text-decoration: underline;
+    font-size: 1.1rem;
+    word-break: break-all;
+}
+
+.link-header a:hover {
+    color: #0056b3;
+}
+
+.favorite-icon {
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    color: #ccc;
+}
+
+.favorite-icon.active {
+    color: #ffc107;
+}
+
+.tags-container {
+    margin-top: 10px;
+}
+
+.tag-list-item {
+    background-color: #e9e9f4;
+    color: #6a6a8a;
+    font-size: 0.8em;
+    padding: 4px 8px;
+    border-radius: 12px;
+    margin-right: 5px;
+    display: inline-block;
+}
+
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.actions a,
+.actions button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.actions a {
+    background-color: #007bff;
+}
+
+.actions a:hover {
+    background-color: #0056b3;
+}
+
+.actions button {
+    background-color: #dc3545;
+}
+
+.actions button:hover {
+    background-color: #c82333;
+}
